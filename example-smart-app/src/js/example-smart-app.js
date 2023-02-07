@@ -14,17 +14,18 @@
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
-                        "clincal-status", 'active'
+                      code: {
+                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|85354-9',
+                              'http://loinc.org|2085-9', 'http://loinc.org|2089-1']
+                      }
                     }
                   })
          var alg = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
                     query: {
-                      code: {
-                        $or: ['active']
-                      }
+                        "clincal-status", 'active'
                     }
-                  })        
+                  })     
         ;
 
         $.when(pt, obv, alg).fail(onError);
