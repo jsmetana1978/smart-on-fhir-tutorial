@@ -53,7 +53,7 @@
           var allergyTable = "<table>";
           var allergyLen = alg.length;
           for (var i=0;i<allergyLen;i++){
-	            if(alg[i].reaction !== undefiend) {
+	            if(alg[i].reaction !== undefined) {
 	              allergyTable +="<tr><td>"+alg[i].code.text+"</td></tr>";
 	            }
           }
