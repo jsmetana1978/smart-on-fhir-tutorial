@@ -61,7 +61,7 @@
 	            allergyTable += "<tr><td>No Allergies Found</td></tr>";
 	  }  
           allergyTable += "</table>";
-          p.allergies = allergyTable;
+          p.alg = allergyTable;
           p.birthdate = patient.birthDate;
           p.gender = gender;
           p.fname = fname;
@@ -78,7 +78,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          p.alg = 'Allergies';
+         // p.alg = 'Allergies';
           
           
           
