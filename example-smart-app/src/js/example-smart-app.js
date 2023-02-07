@@ -14,17 +14,23 @@
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
+                        "clincal-status", 'active'
+                    }
+                  })
+         var alg = smart.patient.api.fetchAll({
+                    type: 'AllergyIntolerance',
+                    query: {
                       code: {
-                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|85354-9',
-                              'http://loinc.org|2085-9', 'http://loinc.org|2089-1']
+                        $or: ['active']
                       }
                     }
-                  });
+                  })        
+        ;
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv, alg).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
-          var byCodes = smart.byCodes(obv, 'code');
+        $.when(pt, obv, alg).done(function(patient, obv, alg) {
+          var byCodes = smart.byCodes(obv,alg, 'code');          
           var gender = patient.gender;
 
           var fname = '';
@@ -35,9 +41,10 @@
             lname = patient.name[0].family;
           }
 
-          var height = byCodes('8302-2');
+          var height = byCodes('8302-2');          
           var systolicbp = getBloodPressureValue(byCodes('85354-9'),'8480-6');
           var diastolicbp = getBloodPressureValue(byCodes('85354-9'),'8462-4');
+          var allergiez = getAllergyIntoleranceValue(byCodes('active');                                                     
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
 
