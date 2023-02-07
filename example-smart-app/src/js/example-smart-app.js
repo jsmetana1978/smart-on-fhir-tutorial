@@ -19,15 +19,14 @@
                               'http://loinc.org|2085-9', 'http://loinc.org|2089-1']
                       }
                     }
-                  })
+                  });
          var alg = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
                     query: {
                         "clincal-status", 'active'
                     }
-                  })     
-        ;
-
+                  }) ;    
+    
         $.when(pt, obv, alg).fail(onError);
 
         $.when(pt, obv, alg).done(function(patient, obv, alg) {
