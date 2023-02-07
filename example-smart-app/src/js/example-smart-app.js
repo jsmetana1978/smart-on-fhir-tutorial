@@ -20,8 +20,14 @@
                       }
                     }
                   });
-     var alg = "";
-        $.when(pt, obv, alg).fail(onError);
+
+          var obv = smart.patient.api.fetchAll({
+                    type: 'AllergyIntolerance'
+                    query: {'clinical-status':'active'
+                    }
+                  });
+
+      $.when(pt, obv, alg).fail(onError);
 
         $.when(pt, obv, alg).done(function(patient, obv, alg) {
           var byCodes = smart.byCodes(obv,alg, 'code');          
