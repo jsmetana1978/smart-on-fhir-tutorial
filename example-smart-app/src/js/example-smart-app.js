@@ -59,7 +59,7 @@
           }
           if (allergyLen === 0) {
 	            allergyTable += "<tr><td>No Allergies Found</td></tr>";
-          {   
+	  }  
           allergyTable += "</table>";
           p.allergies = allergyTable;
           p.birthdate = patient.birthDate;
