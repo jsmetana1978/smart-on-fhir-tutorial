@@ -20,12 +20,13 @@
                       }
                     }
                   });
+  console.log(smart.patient)
          var alg = smart.patient.api.fetchAll({
-                    type: 'AllergyIntolerance',
+                    type: 'AllergyIntolerance'
                     query: {
                         "clincal-status", 'active'
                     }
-                  }) ;    
+                  });    
     
         $.when(pt, obv, alg).fail(onError);
 
