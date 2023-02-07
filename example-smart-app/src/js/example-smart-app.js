@@ -51,10 +51,10 @@
           var p = defaultPatient();
           
           var allergyTable = "<table>";
-          var allergyLen = allergies.length;
+          var allergyLen = alg.length;
           for (var i=0;i<allergyLen;i++){
-	            if(allergies[i].reaction !== undefiend) {
-	              allergyTable +="<tr><td>"+allergies[i].code.text+"</td></tr>";
+	            if(alg[i].reaction !== undefiend) {
+	              allergyTable +="<tr><td>"+alg[i].code.text+"</td></tr>";
 	            }
           }
           if (allergyLen === 0) {
